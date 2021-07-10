@@ -1,12 +1,19 @@
 import React from 'react';
+import './style.css'
+import Nav from '../Nav/Nav';
 
 export default function Header() {
     return (
         <div className='header'>
             <div className='header-wrapper'>
-                <div className='logo'> 
-                    <a href='#home'>Google Books Search..</a>
+                <div className="left">
+                    <div className='logo'> 
+                        <a href='#home'>Google Books Search..</a>    
+                    </div>
                 </div>
+                    <div className="right">
+                        <Nav/>
+                </div>   
             </div>
         </div>
     )

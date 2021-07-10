@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.css';
+// import SearchBox from '../SearchBox/SearchBox';
 
 
 export default function Nav() {
   return (
-        <div className= 'search'>
-                <p>Search</p>
-                    <Link to='/newtab'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
-        </div>
-        <div className= 'saved'>
-                <p>Saved</p>
-                <Link to='/newtab'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
-                <i class="fa fa-sign-out" aria-hidden="true" ></i>
-        </div>
+    <div className='navbar-items'>
+            <Link className='link' to='/'><p className='search'>Search</p></Link>
+            <Link className='link' to='/saved'><p className='saved'>Saved</p></Link>
+    </div>  
   )
 }

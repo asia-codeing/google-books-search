@@ -1,3 +1,31 @@
-.navbar{
-    background-color: darkgreen;
+:root{
+    --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+    --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+    --my-name:rgb(164, 88, 81);
+    --steelBlue:#5880A6;
+    --beag:rgb(255, 241, 220);
+
+
+}
+.navbar-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 13px 30px;
+}
+/* p{
+    font-size: 16px;
+    padding: 20px;
+    border-bottom: solid 2px rgb(255, 241, 220);
+} */
+.search,
+.saved
+{
+    color: var(--steelBlue);
+    font-size: 18px;
+    padding: 20px 20px 0px;
+    border-bottom: solid 2px var(--my-name);
+}
+.link{
+    text-decoration: none;
 }
