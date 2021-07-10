@@ -1,14 +1,17 @@
-import React from "react";
-import './style.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Nav() {
+
+export default function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
-      <a className="navbar-brand" href="/">
-        Google Books Search
-      </a>
-    </nav>
-  );
+        <div className= 'search'>
+                <p>Search</p>
+                    <Link to='/newtab'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
+        </div>
+        <div className= 'saved'>
+                <p>Saved</p>
+                <Link to='/newtab'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
+                <i class="fa fa-sign-out" aria-hidden="true" ></i>
+        </div>
+  )
 }
-
-export default Nav;
