@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from '../src/components/Header/Header';
-import Jumbo from '../src/components/Jumbotron/Jumbo';
+import Header from './components/Header/Header';
+import Jumbo from './components/Jumbotron/Jumbo';
 import Search from './pages/Search'
 import Saved from './pages/Saved';
 

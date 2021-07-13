@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
+import {Image} from 'react-bootstrap';
 
 const Book = (props) => {
 
@@ -11,6 +11,21 @@ const Book = (props) => {
         <Col md={12}>
             <Card className="mb-4 shadow-sm" page={props.page}>
                 <Card.Body>
+                    {
+                        (props.data.image || props.data.imageLinks)
+                        ? <Card.Text 
+                            className="text-center"
+                        ><Image 
+                        src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" 
+                        thumbnail 
+                        />
+                        </Card.Text>
+                        : <Card.Text
+                            className="text-center"
+                        >
+                            No image provided by Google Books.
+                        </Card.Text>
+                    }
                     <Card.Title 
                         className="text-center"
                     >
@@ -28,21 +43,6 @@ const Book = (props) => {
                         {"Written By " + props.data.authors}
                     </Card.Subtitle>
                     <br />
-                    {
-                        (props.data.image || props.data.imageLinks)
-                        ? <Card.Text 
-                            className="text-center"
-                        ><Image 
-                        src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" 
-                        thumbnail 
-                        />
-                        </Card.Text>
-                        : <Card.Text
-                            className="text-center"
-                        >
-                            No image provided by Google Books.
-                        </Card.Text>
-                    }
                     <Card.Text>
                         {props.data.description || "No description provided by Google Books."}
                     </Card.Text>
@@ -80,29 +80,3 @@ const Book = (props) => {
     );
 }
 export default Book;
-
-// import React from 'react'
-// import styled from 'styled-components';
-
-// const BoxContainer = styled.div`
-//     width: 89%;
-//     min-height: 550px;
-//     top:180px;
-//     margin: auto;
-//     display: flex;
-//     flex-direction: column;
-//     border-radius: 19px;
-//     background-color:red;
-//     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
-//     position: relative;
-//     overflow: hidden;
-// `;
-
-// export default function BookBox() {
-//     return (
-       
-//        <BoxContainer>
-
-//        </BoxContainer>
-//     )
-// }
