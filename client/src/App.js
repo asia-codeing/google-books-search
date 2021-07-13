@@ -5,24 +5,19 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Header from './components/Header/Header';
 import BookBox from './components/BookBox/BookBox';
+import SavedBooks from './pages/SavedBooks';
 
 function App() {
   return (
     <Router>
       <div>
         <Header/>
-        <BookBox/>
-        {/* <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
-          </Route>
-          <Route exact path="/books/:id">
-            <Detail />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-        </Switch> */}
+          <Switch>
+            <Route exact path="/" component={Books}>
+            </Route>
+            <Route exact path="/savedbooks" component={SavedBooks}>
+            </Route>
+          </Switch>
       </div>
     </Router>
   );
