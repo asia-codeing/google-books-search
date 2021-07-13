@@ -1,0 +1,129 @@
+import React, { useState, useEffect } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import API from '../utils/API';
+import BookCard from "../components/BookBox/BookBox";
+
+const Saved = () => {
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        loadBooks()
+    }, []);
+
+    function loadBooks() {
+        API.getBooks()
+            .then(res => {
+                setBooks(res.data);
+            })
+            .catch(err => console.log(err));
+    };
+
+    const handleBookDelete = id => {
+        API.deleteBook(id)
+        .then(res => loadBooks())
+        .catch(err => console.log(err));
+    }
+
+    return (
+        <Container>
+            <h2>Saved Books</h2>
+            <Row>
+                <Col>
+                    {books
+                        ? books.map((book) => (
+                            <BookCard
+                                key={book._id}
+                                data={book}
+                                page="saved"
+                                handleBookDelete={handleBookDelete}
+                            />
+                        ))
+                        : null}
+                </Col>
+            </Row>
+        </Container>
+    )
+}
+
+export default Saved;
+// import React, { useEffect, useState } from "react";
+// import Jumbotron from "../components/Jumbotron";
+// import API from "../utils/API";
+// import { List, ListItem } from "../components/List";
+// import {DeleteBtn} from "../components/DeleteBtn";
+// import { Container, Row, Col } from 'reactstrap';
+// // import "./style.css";
+
+// function SavedBooks() {
+//   const [savedBooks, setSavedBooks] = useState([]);
+
+//   // const { id } = useParams()
+//   useEffect(() => {
+//     loadBooks();
+//   }, []);
+
+//   function loadBooks() {
+//     API.getBooks()
+//       .then((res) => setSavedBooks(res.data))
+//       .catch((err) => console.log(err));
+//   }
+
+//   function deleteBook(id) {
+//     API.deleteBook(id)
+//       .then((res) => loadBooks())
+//       .catch((err) => console.log(err));
+//   }
+
+//   return (
+//     <div>
+//       <Jumbotron className="fluid">
+//         <Container fluid>
+//           <Col>
+//           <h1>My Saved Books</h1>
+//           </Col>
+//         </Container>
+//       </Jumbotron>
+//       <br></br>
+//       <br></br>
+//       <Container fluid="md" id="resultsdiv">
+//         {/* <h2>Saved Books</h2> */}
+//         <Row>
+//         {savedBooks.length ? (
+//           <List>
+//             {savedBooks.map((savedBook) => (
+//               <ListItem key={savedBook._id}>
+//               <a href={savedBook.link}>
+//                 <img
+//                   src={
+//                     savedBook.image === undefined ? "" : `${savedBook.image}`
+//                   }
+//                   alt={savedBook.title}
+//                   // className="md"
+//                 />
+//                 </a>
+                  
+//                 <strong className="saved-book">
+//                   {savedBook.title + "   "} 
+//                   by 
+//                   {"   " + savedBook.authors}
+//                 </strong>
+            
+//                 <p className="book-description">{savedBook.description}</p>
+                
+//                 <DeleteBtn onClick={() => deleteBook(savedBook._id)} />
+//               </ListItem>
+//             ))}
+            
+//           </List>
+//         ) : (
+//           <h2>No Books to Display</h2>
+//         )}
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// }
+
+// export default SavedBooks;
