@@ -9,7 +9,7 @@ const Book = (props) => {
 
     return (
         <Col md={12}>
-            <Card className="mb-4 shadow-sm" page={props.page}>
+            <Card className="mb-4 shadow-sm d-flex" page={props.page}>
                 <Card.Body>
                     {
                         (props.data.image || props.data.imageLinks)
@@ -46,9 +46,10 @@ const Book = (props) => {
                     <Card.Text>
                         {props.data.description || "No description provided by Google Books."}
                     </Card.Text>
-                    <div className="d-flex justify-content-center align-items-center">
+                    <div className="d-flex align-items-center">
                         <ButtonGroup aria-label="Project Links" page={props.page}>
                             <Button 
+                                className='btn-outline-info'
                                 href={props.data.link || props.data.infoLink} 
                                 target="_blank" 
                                 size="sm" 
@@ -57,7 +58,7 @@ const Book = (props) => {
                             </Button>
                         {props.page === "search" ? 
                             <Button 
-                                className="save-btn" 
+                                className="save-btn btn-outline-success" 
                                 size="sm" 
                                 variant="outline-secondary" 
                                 onClick={() => props.handleBookSubmit(props.data)}
@@ -65,7 +66,7 @@ const Book = (props) => {
                                     Save
                             </Button> :
                             <Button 
-                                className="del-btn" 
+                                className="del-btn btn-outline-warning" 
                                 size="sm" 
                                 variant="outline-secondary" 
                                 onClick={() => props.handleBookDelete(props.data._id)}

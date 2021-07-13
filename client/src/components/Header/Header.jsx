@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css'
 import Nav from '../Nav/Nav';
 
+
+
 export default function Header() {
     return (
         <div className='header'>

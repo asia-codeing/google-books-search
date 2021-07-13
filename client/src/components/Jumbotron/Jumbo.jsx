@@ -1,29 +1,12 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Image from '../../bookcover.jpg';
 
 const Jumbo = (props) => (
-    <Jumbotron fluid className="text-center">
-        <Container>
-            <h1>Google Books Search</h1>
-            <p>Search for and save books of interest!</p>
-        </Container>
-    </Jumbotron>
+        <div>
+            <img 
+            style={{ height: 500, width:"100%", clear: "both"}} 
+            className="img-fluid " src={Image} alt='cover'/>
+        </div>
 );
 
 export default Jumbo;
-// import React from "react";
-
-// function Jumbotron({ children }) {
-//   return (
-//     <div
-//       style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-//       className="jumbotron"
-//     >
-//       {children}
-//     </div>
-//   );
-// }
-
-// export default Jumbotron;
