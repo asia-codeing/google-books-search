@@ -15,8 +15,8 @@ export default function Header() {
                     <Link to="/">Google Books Search..</Link>
                     </div>
                 </div>
-                    <div className="right">
-                        <Nav/>
+                <div className="right">
+                    <Nav/>
                 </div>   
             </div>
         </div>

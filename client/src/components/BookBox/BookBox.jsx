@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -9,66 +9,63 @@ const Book = (props) => {
 
     return (
         <Col md={12}>
-            <Card className="mb-4 shadow-sm d-flex" page={props.page}>
+            <Card className='mb-4 shadow-sm d-flex' page={props.page}>
                 <Card.Body>
                     {
                         (props.data.image || props.data.imageLinks)
                         ? <Card.Text 
-                            className="text-center"
+                            className='text-center'
                         ><Image 
-                        src={props.data.image || props.data.imageLinks.thumbnail} alt="Book Cover" 
+                        src={props.data.image || props.data.imageLinks.thumbnail} alt='Book Cover'
                         thumbnail 
                         />
                         </Card.Text>
                         : <Card.Text
-                            className="text-center"
+                            className='text-center'
                         >
                            Google Books does not provide image for that book...
                         </Card.Text>
                     }
                     <Card.Title 
-                        className="text-center"
+                        className='text-center'
                     >
                         {props.data.title}
                     </Card.Title>
                     <Card.Subtitle 
-                        className="text-center"
+                        className='text-center'
                     >
                         {props.data.subtitle}
                     </Card.Subtitle>
                     <br />
                     <Card.Subtitle 
-                        className="text-center"
+                        className='text-center'
                     >
-                        {"Written By " + props.data.authors}
+                        {'Written By' + props.data.authors}
                     </Card.Subtitle>
                     <br />
                     <Card.Text>
-                        {props.data.description || "No description provided by Google Books."}
+                        {props.data.description || 'Google Books does not provide description for that book...'}
                     </Card.Text>
                     <div className="d-flex align-items-center">
                         <ButtonGroup page={props.page}>
                             <Button style={{ margin: 10, fontSize:20}}
                                 className='btn-outline-info'
                                 href={props.data.link || props.data.infoLink} 
-                                target="_blank" 
-                                size="sm" 
-                                variant="outline-secondary">
+                                target='_blank'
+                                variant='outline-secondary'>
                                 View
                             </Button>
-                        {props.page === "search" ? 
+                        {props.page === 'search' ? 
                             <Button style={{ margin: 10, fontSize:20}}
-                                className="save-btn btn-outline-success" 
-                                size="sm" 
-                                variant="outline-secondary" 
+                                className='btn-outline-success' 
+                                variant='outline-secondary' 
                                 onClick={() => props.handleBookSubmit(props.data)}
                                 >
                                     Save
                             </Button> :
                             <Button style={{ margin: 10,fontSize:20}}
-                                className="del-btn btn-outline-warning" 
-                                size="sm" 
-                                variant="outline-secondary" 
+                                className='btn-outline-warning' 
+                                variant='outline-secondary'
                                 onClick={() => props.handleBookDelete(props.data._id)}
                                 >
                                 Delete
