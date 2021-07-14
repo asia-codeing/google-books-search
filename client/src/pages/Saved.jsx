@@ -12,7 +12,7 @@ const Saved = () => {
         loadBooks()
     }, []);
 
-    function loadBooks() {
+    const loadBooks = () => {
         API.getBooks()
             .then(res => {
                 setBooks(res.data);
