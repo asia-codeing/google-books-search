@@ -73,9 +73,8 @@ const Search = () => {
             </Container>
             <section className="pt-5">
                 <Container>
-                    <h2>Search results</h2>
+                    <h2>Search results:</h2>
                     <Row>
-
                         {books
                             ? books.map((book) => (
                                 <BookCard 

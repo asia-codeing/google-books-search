@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Jumbo from './components/Jumbotron/Jumbo';
@@ -12,10 +12,10 @@ function App() {
         <Header/>
         <Jumbo />
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Search />
           </Route>
-          <Route path="/savedbooks">
+          <Route path='/savedbooks'>
             <Saved />
           </Route>
         </Switch>
@@ -23,6 +23,4 @@ function App() {
     </Router>
   );
 }
-
-
 export default App;
