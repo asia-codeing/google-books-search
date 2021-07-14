@@ -7,39 +7,37 @@ import API from "../utils/API";
 import BookCard from "../components/BookBox/BookBox";
 
 const Search = () => {
-    const [searchTerm, setSearchTerm] = useState("Boston"); 
-        // enter what I want to load on page here - initializing starting searchTerm as "Boston"
+    const [searchKey, setSearchKey] = useState('Cat and dog'); 
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
         loadBooks()
     }, []);
 
-    function loadBooks() {
-        API.searchBooks(searchTerm)
+    const loadBooks = () => {
+        API.searchBooks(searchKey)
             .then(res =>
                 setBooks(res.data.items)
             )
             .catch(err => console.log(err));
     };
 
-    function handleInputChange(event) {
-        const { value } = event.target;
-        setSearchTerm(value);
+    const handleInputChange = (e) => {
+        const { value } = e.target;
+        setSearchKey(value);
     };
 
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        if (searchTerm) {
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        if (searchKey) {
             loadBooks();
             console.log(books);
         };
     };
 
-    function handleBookSubmit(book) {
+    const handleBookSubmit = (book) => {
         if (book.title) {
             API.saveBook(
-                //bookData
                 {
                     title: book.title,
                     subtitle: book.subtitle,
@@ -58,17 +56,15 @@ const Search = () => {
         <>
             <Container>
                 <Row>
-                    <Col>
+                    <Col style={{ marginTop: 28}}>
                         <form>
                             <h2>Search for a book here:</h2>
                             <SearchBox
                                 onChange={handleInputChange}
-                                name="book search box"
-                                placeholder="Keywords"
+                                name="search box"
+                                placeholder='Search For Book..'
                             />
-                            <SearchBtn
-                                onClick={handleFormSubmit}
-                            >
+                            <SearchBtn onClick={handleFormSubmit}>
                                 Search
                             </SearchBtn>
                         </form>

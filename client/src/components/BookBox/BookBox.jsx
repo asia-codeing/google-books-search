@@ -23,7 +23,7 @@ const Book = (props) => {
                         : <Card.Text
                             className="text-center"
                         >
-                            No image provided by Google Books.
+                           Google Books does not provide image for that book...
                         </Card.Text>
                     }
                     <Card.Title 
@@ -47,8 +47,8 @@ const Book = (props) => {
                         {props.data.description || "No description provided by Google Books."}
                     </Card.Text>
                     <div className="d-flex align-items-center">
-                        <ButtonGroup aria-label="Project Links" page={props.page}>
-                            <Button 
+                        <ButtonGroup page={props.page}>
+                            <Button style={{ margin: 10, fontSize:20}}
                                 className='btn-outline-info'
                                 href={props.data.link || props.data.infoLink} 
                                 target="_blank" 
@@ -57,7 +57,7 @@ const Book = (props) => {
                                 View
                             </Button>
                         {props.page === "search" ? 
-                            <Button 
+                            <Button style={{ margin: 10, fontSize:20}}
                                 className="save-btn btn-outline-success" 
                                 size="sm" 
                                 variant="outline-secondary" 
@@ -65,7 +65,7 @@ const Book = (props) => {
                                 >
                                     Save
                             </Button> :
-                            <Button 
+                            <Button style={{ margin: 10,fontSize:20}}
                                 className="del-btn btn-outline-warning" 
                                 size="sm" 
                                 variant="outline-secondary" 

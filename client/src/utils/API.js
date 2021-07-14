@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
     // Search Google Books - working!
-    searchBooks: function(searchTerm) {
-        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
+    searchBooks: function(searchKey) {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchKey}`);
     },
 
     // Saves a book to MongoDB
